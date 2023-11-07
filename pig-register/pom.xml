@@ -31,11 +31,11 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>io.springboot.nacos</groupId>
-            <artifactId>nacos-config</artifactId>
-            <version>${nacos.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>io.springboot.nacos</groupId>
+			<artifactId>nacos-config</artifactId>
+			<version>${nacos.version}</version>
+		</dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>

@@ -90,7 +90,11 @@ public class PigRemoteRegisteredClientRepository implements RegisteredClientRepo
 			.getData()
 			.orElseThrow(() -> new OAuth2AuthorizationCodeRequestAuthenticationException(
 					new OAuth2Error("客户端查询异常，请检查数据库链接"), null));
-
+		if(clientDetails.getAuthorizedGrantTypes() == null || clientDetails.getAuthorizedGrantTypes().length==0) {
+			String data = "password,refresh_token,authorization_code,client_credentials,mobile";
+			String[] elements = data.split(",");
+			clientDetails.setAuthorizedGrantTypes(elements);
+		}
 		RegisteredClient.Builder builder = RegisteredClient.withId(clientDetails.getClientId())
 			.clientId(clientDetails.getClientId())
 			.clientSecret(SecurityConstants.NOOP + clientDetails.getClientSecret())

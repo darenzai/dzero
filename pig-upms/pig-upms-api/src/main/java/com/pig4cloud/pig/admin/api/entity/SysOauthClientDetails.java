@@ -78,6 +78,7 @@ public class SysOauthClientDetails extends Model<SysOauthClientDetails> {
 	 * 授权方式[A,B,C]
 	 */
 	@Schema(description = "授权方式")
+	@TableField(property = "authorized_grant_types")
 	private String[] authorizedGrantTypes;
 
 	/**

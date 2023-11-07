@@ -19,6 +19,7 @@
 
 package com.pig4cloud.pig.admin.api.feign;
 
+import com.pig4cloud.pig.admin.api.entity.SysAuditLoginLog;
 import com.pig4cloud.pig.admin.api.entity.SysLog;
 import com.pig4cloud.pig.common.core.constant.SecurityConstants;
 import com.pig4cloud.pig.common.core.constant.ServiceNameConstants;
@@ -43,5 +44,14 @@ public interface RemoteLogService {
 	 */
 	@PostMapping("/log/save")
 	R<Boolean> saveLog(@RequestBody SysLog sysLog, @RequestHeader(SecurityConstants.FROM) String from);
+
+	/**
+	 * 保存登录日志
+	 * @param sysAuditLoginLog
+	 * @param from 是否内部调用
+	 * @return 调用是否成功
+	 */
+	@PostMapping("/login-log/save")
+	R<Boolean> saveAuditLoginLog(@RequestBody SysAuditLoginLog sysAuditLoginLog, @RequestHeader(SecurityConstants.FROM) String from);
 
 }
